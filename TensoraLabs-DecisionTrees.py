@@ -49,7 +49,7 @@ if file:
         st.success(f"Model Accuracy: {acc:.2f}")
 
         model_buffer = io.BytesIO()
-        joblib.dump(model, model_buffer)
+        joblib.dump((model, X_columns, st.session_state.target_categories), model_buffer)
         model_buffer.seek(0)
 
         st.download_button(
